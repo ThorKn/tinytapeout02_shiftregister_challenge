@@ -1,34 +1,58 @@
 ![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg)
 
-# What is Tiny Tapeout?
-
-TinyTapeout is an educational project that aims to make it easier and cheaper than ever to get your digital designs manufactured on a real chip!
-
 Go to https://tinytapeout.com for instructions!
 
-## How to change the Wokwi project
+# Shiftregister Challenge 40 Bit
 
-Edit the [info.yaml](info.yaml) and change the wokwi_id to match your project.
+## TinyTapeout 02
 
-## How to enable the GitHub actions to build the ASIC files
+This repository contains a mikrochip design done for TinyTapeout.
+Go to https://tinytapeout.com for more informations.
 
-Please see the instructions for:
+This is a re-submission from TinyTapeOut 01. So the code in this project is a clone from the TT01 project (same wokwi ID).
 
-* [Enabling GitHub Actions](https://tinytapeout.com/faq/#when-i-commit-my-change-the-gds-action-isnt-running)
-* [Enabling GitHub Pages](https://tinytapeout.com/faq/#my-github-action-is-failing-on-the-pages-part)
+## Wokwi project
 
-## How does it work?
+https://wokwi.com/projects/341516949939814994
 
-When you edit the info.yaml to choose a different ID, the [GitHub Action](.github/workflows/gds.yaml) will fetch the digital netlist of your design from Wokwi.
+## Information about the design
 
-After that, the action uses the open source ASIC tool called [OpenLane](https://www.zerotoasiccourse.com/terminology/openlane/) to build the files needed to fabricate an ASIC.
+author:       "Thorsten Knoll"
 
-## Resources
+title:        "Shiftregister Challenge 40 Bit"
 
-* [FAQ](https://tinytapeout.com/faq/)
-* [Digital design lessons](https://tinytapeout.com/digital_design/)
-* [Join the community](https://discord.gg/rPK2nSjxy8)
+description:  "The design is a 40 bit shiftregister with a hardcoded 40 bit number. The challenge is to find the correct 40 bit to enable the output to high. With all other numbers the output will be low."
 
-## What next?
+how_it_works: "Shift a 40 bit number into the chip with the two inputs data (IN0) and clk (IN1). If the shifted 40 bit match the hardcoded internal 40 bit, then and only then the output will become high. Having only the mikrochip without the design files, one might need reverse engineering and/or side channel attacks to find the correct 40 bit."
 
-* Share your GDS on Twitter, tag it [#tinytapeout](https://twitter.com/hashtag/tinytapeout?src=hashtag_click) and [link me](https://twitter.com/matthewvenn)!
+how_to_test:  "Get the correct 40 bit from the design and shift them into the shiftregister. Each rising edge at the clk will push the next data bit into the register. At the correct 40 bit, the output will enable high."
+
+external_hw:  "To test when knowing the correct 40 bit, only a dipswitch (data), a button (clk) and a LED (output) is needed. Without knowing the number it becomes the challenge and more hardware might be required."
+
+language:     "wokwi"
+
+wokwi_id:     341516949939814994
+
+pictures:      
+<img src=shiftregister_challenge.png>
+<img src=shiftregister_challenge_gds_render.png>
+
+inputs:
+  - data
+  - clk
+  - none
+  - none
+  - none
+  - none
+  - none
+  - none
+
+outputs:
+  - output
+  - none
+  - none
+  - none
+  - none
+  - none
+  - none
+  - none
